@@ -78,21 +78,21 @@ Welcome screen of the Digital E-Gram Panchayat Portal.
 ### 📝 Register Page
 User registration with role selection (User, Officer, Staff).
 
-![Register Page](./assets/register.png)
+![Register Page](./assets/register-page.png)
 
 ---
 
 ### 📨 Submit Complaint
 Users can submit complaints selecting category and uploading optional image.
 
-![Submit Complaint](./assetsts/submit-complaint.png)
+![Submit Complaint](./assets/submit-complaint.png)
 
 ---
 
 ### 📋 User Dashboard
 Quick access to Apply, View Status, My Profile, and Available Services.
 
-![User Dashboard](./assetsts/user-dashboard.png)
+![User Dashboard](./assets/user-dashboard.png)
 
 ---
 
