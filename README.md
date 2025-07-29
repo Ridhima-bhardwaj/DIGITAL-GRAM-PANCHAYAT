@@ -111,8 +111,6 @@ Quick access to Apply, View Status, My Profile, and Available Services.
 │   ├── services.js
 │   ├── manage.js
 │   └── firebase-config.js
-├── screenshots/
-│   └── *.png
 ├── index.html
 ├── register.html
 ├── login.html
