@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile - Digital E-Gram Panchayat</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    function toggleLanguage() {
+      const eng = document.querySelectorAll('.en');
+      const hin = document.querySelectorAll('.hi');
+      eng.forEach(e => e.style.display = (e.style.display === 'none' ? 'block' : 'none'));
+      hin.forEach(h => h.style.display = (h.style.display === 'block' ? 'none' : 'block'));
+    }
+  </script>
+  <script type="module" src="js/profile.js"></script>
+</head>
+<body>
+  <nav>Digital E-Gram Panchayat Portal</nav>
+
+  <div class="language-toggle">
+    <button class="animated-btn" onclick="toggleLanguage()">English / हिंदी</button>
+  </div>
+
+  <div class="container fade-in">
+    <h2 class="en">My Profile</h2>
+    <h2 class="hi" style="display:none;">मेरी प्रोफ़ाइल</h2>
+
+    <div id="profileInfo">
+      <p class="en">Loading profile...</p>
+      <p class="hi" style="display:none;">प्रोफ़ाइल लोड हो रही है...</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <a href="user-dashboard.html"><button class="animated-btn">⬅ Back / वापस</button></a>
+      <button onclick="logout()" class="animated-btn">Logout / लॉगआउट</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Digital E-Gram Panchayat
+  </footer>
+</body>
+</html>

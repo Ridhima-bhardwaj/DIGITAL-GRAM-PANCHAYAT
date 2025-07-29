@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Dashboard - Digital E-Gram Panchayat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    Digital E-Gram Panchayat Portal
+    <button onclick="logout()" class="animated-btn" style="float: right; margin-right: 10px;">Logout</button>
+  </nav>
+
+  <div class="container fade-in">
+    <h2>Welcome to Your Dashboard</h2>
+
+    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px;">
+      <div style="text-align: center;">
+        <img src="assets/complaint.png" alt="Submit Complaint" style="width: 80px;" />
+        <p><a href="submit-complaint.html" class="animated-btn">Apply for Service</a></p>
+      </div>
+      <div style="text-align: center;">
+        <img src="assets/services.png" alt="Search Services" style="width: 80px;" />
+        <p><a href="services.html" class="animated-btn">Search Services</a></p>
+      </div>
+      <div style="text-align: center;">
+        <img src="assets/status.png" alt="View Status" style="width: 80px;" />
+        <p><a href="submit-complaint.html#complaintList" class="animated-btn">My Application Status</a></p>
+      </div>
+      <div style="text-align: center;">
+        <img src="assets/profile.png" alt="Profile" style="width: 80px;" />
+        <p><a href="profile.html" class="animated-btn">My Profile</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Digital E-Gram Panchayat
+  </footer>
+
+  <script type="module">
+    import { signOut } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+    import { auth } from './js/firebase-config.js';
+
+    window.logout = function () {
+      if (confirm("Are you sure you want to logout?")) {
+        signOut(auth)
+          .then(() => {
+            console.log(" Logged out.");
+            window.location.href = "login.html";
+          })
+          .catch((err) => {
+            console.error(" Logout error:", err.message);
+          });
+      }
+    };
+  </script>
+</body>
+</html>

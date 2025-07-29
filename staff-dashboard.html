@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff Dashboard - Digital E-Gram Panchayat</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="module" src="js/staff.js"></script>
+</head>
+<body>
+  <nav>
+    Digital E-Gram Panchayat Portal
+    <button onclick="logout()" class="animated-btn" style="float: right; margin-right: 10px;">
+      Logout
+    </button>
+  </nav>
+
+  <div class="container fade-in">
+    <h2>Welcome, Staff</h2>
+    <div id="complaintList">
+      <p>Loading submitted services...</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Digital E-Gram Panchayat
+  </footer>
+
+  <!-- ✅ Working logout logic -->
+  <script type="module">
+    import { signOut } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+    import { auth } from './js/firebase-config.js';
+
+    window.logout = function () {
+      if (confirm("Are you sure you want to logout?")) {
+        signOut(auth)
+          .then(() => {
+            alert("Logged out successfully!");
+            window.location.href = "login.html";
+          })
+          .catch((error) => {
+            alert("Logout failed: " + error.message);
+          });
+      }
+    };
+  </script>
+</body>
+</html>

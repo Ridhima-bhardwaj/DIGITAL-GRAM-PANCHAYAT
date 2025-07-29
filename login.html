@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Digital E-Gram Panchayat</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    function toggleLanguage() {
+      const engElements = document.querySelectorAll('.en');
+      const hinElements = document.querySelectorAll('.hi');
+      engElements.forEach(el => el.style.display = (el.style.display === 'none' ? 'block' : 'none'));
+      hinElements.forEach(el => el.style.display = (el.style.display === 'block' ? 'none' : 'block'));
+    }
+  </script>
+</head>
+<body>
+  <nav>Digital E-Gram Panchayat Portal</nav>
+  <div class="language-toggle">
+    <button class="animated-btn" onclick="toggleLanguage()">English / हिंदी</button>
+  </div>
+
+  <div class="container fade-in">
+    <h2 class="en">Login</h2>
+    <h2 class="hi" style="display:none;">लॉगिन करें</h2>
+
+    <form id="loginForm">
+      <label class="en">Email</label>
+      <label class="hi" style="display:none;">ईमेल</label>
+      <input type="email" id="loginEmail" placeholder="Enter your email" required>
+
+      <label class="en">Password</label>
+      <label class="hi" style="display:none;">पासवर्ड</label>
+      <input type="password" id="loginPassword" placeholder="Enter your password" required>
+
+      <button type="submit" class="animated-btn">Login</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Digital E-Gram Panchayat
+  </footer>
+
+  <!-- Load Firebase login logic and attach handler -->
+   <script type="module" src="js/auth.js"></script>
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    login(); // Calls window.login from auth.js
+  });
+</script>
+
+</body>
+</html>

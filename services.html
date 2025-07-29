@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available Services - Digital E-Gram Panchayat</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    function toggleLanguage() {
+      const eng = document.querySelectorAll('.en');
+      const hin = document.querySelectorAll('.hi');
+      eng.forEach(e => e.style.display = (e.style.display === 'none' ? 'block' : 'none'));
+      hin.forEach(h => h.style.display = (h.style.display === 'block' ? 'none' : 'block'));
+    }
+  </script>
+  <script type="module" src="js/services.js"></script>
+</head>
+<body>
+  <nav>Digital E-Gram Panchayat Portal</nav>
+  <div class="language-toggle">
+    <button class="animated-btn" onclick="toggleLanguage()">English / हिंदी</button>
+  </div>
+
+  <div class="container fade-in">
+    <h2 class="en">Available Services</h2>
+    <h2 class="hi" style="display:none;">उपलब्ध सेवाएं</h2>
+
+    <div id="serviceList">
+      <p class="en">Loading services...</p>
+      <p class="hi" style="display:none;">सेवाएं लोड हो रही हैं...</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Digital E-Gram Panchayat
+  </footer>
+</body>
+</html>

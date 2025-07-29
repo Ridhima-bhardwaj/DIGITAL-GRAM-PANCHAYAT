@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Digital E-Gram Panchayat</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    function toggleLanguage() {
+      const engElements = document.querySelectorAll('.en');
+      const hinElements = document.querySelectorAll('.hi');
+      engElements.forEach(el => el.style.display = (el.style.display === 'none' ? 'block' : 'none'));
+      hinElements.forEach(el => el.style.display = (el.style.display === 'block' ? 'none' : 'block'));
+    }
+  </script>
+</head>
+<body>
+  <nav>Digital E-Gram Panchayat Portal</nav>
+  <div class="language-toggle">
+    <button class="animated-btn" onclick="toggleLanguage()">English / हिंदी</button>
+  </div>
+  <div class="container fade-in">
+    <h2 class="en">Register</h2>
+    <h2 class="hi" style="display:none;">पंजीकरण करें</h2>
+    <form onsubmit="event.preventDefault(); register();">
+  <label class="en">Full Name</label>
+  <label class="hi" style="display:none;">पूर्ण नाम</label>
+  <input type="text" id="name" placeholder="Enter full name" required>
+
+  <label class="en">Email</label>
+  <label class="hi" style="display:none;">ईमेल</label>
+  <input type="email" id="email" placeholder="Enter email address" required>
+
+  <label class="en">Password</label>
+  <label class="hi" style="display:none;">पासवर्ड</label>
+  <input type="password" id="password" placeholder="Enter password" required>
+
+  <label class="en">Role</label>
+  <label class="hi" style="display:none;">भूमिका</label>
+  <select id="role" required>
+    <option value="user" class="en">User</option>
+    <option value="user" class="hi" style="display:none;">उपयोगकर्ता</option>
+    <option value="officer" class="en">Officer</option>
+    <option value="officer" class="hi" style="display:none;">अधिकारी</option>
+    <option value="staff" class="en">Staff</option>
+    <option value="staff" class="hi" style="display:none;">स्टाफ</option>
+  </select>
+
+  <button type="submit" class="animated-btn">Register</button>
+</form>
+
+  </div>
+  <footer>
+    &copy; 2025 Digital E-Gram Panchayat
+  </footer>
+</body>
+<script type="module" src="js/auth.js"></script>
+</html>

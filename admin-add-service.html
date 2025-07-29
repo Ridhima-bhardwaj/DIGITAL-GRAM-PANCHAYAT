@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Service - Officer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/admin.js"></script>
+  <script>
+    function logout() {
+      if (confirm("Are you sure you want to logout?")) {
+        import("https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js").then(({ signOut }) => {
+          import("./firebase-config.js").then(({ auth }) => {
+            signOut(auth).then(() => {
+              window.location.href = "login.html";
+            });
+          });
+        });
+      }
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    Digital E-Gram Panchayat Portal
+    <button onclick="logout()" class="animated-btn" style="float: right; margin-right: 10px;">Logout</button>
+  </nav>
+
+  <div class="container fade-in">
+    <h2>Add New Gram Panchayat Service</h2>
+
+    <form id="serviceForm">
+      <label>Service Title</label>
+      <input type="text" id="title" required>
+
+      <label>Description</label>
+      <textarea id="description" rows="4" required></textarea>
+
+      <button type="submit" class="animated-btn">Submit</button>
+    </form>
+
+    <p id="statusMsg"></p>
+  </div>
+
+  <footer>
+    &copy; 2025 Digital E-Gram Panchayat
+  </footer>
+</body>
+</html>

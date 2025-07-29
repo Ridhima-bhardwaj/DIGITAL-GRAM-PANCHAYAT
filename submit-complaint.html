@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - Digital E-Gram Panchayat</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/user.js"></script>
+  <script>
+    function logout() {
+      if (confirm("Are you sure you want to logout?")) {
+        import("https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js").then(({ signOut }) => {
+          import("./firebase-config.js").then(({ auth }) => {
+            signOut(auth).then(() => {
+              window.location.href = "login.html";
+            });
+          });
+        });
+      }
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    Digital E-Gram Panchayat Portal
+    <button onclick="logout()" class="animated-btn en" style="float: right; margin-right: 10px;">Logout</button>
+    <button onclick="logout()" class="animated-btn hi" style="float: right; margin-right: 10px; display:none;">लॉगआउट</button>
+  </nav>
+
+  <div class="container fade-in">
+    <!-- Submit Complaint Section -->
+    <h2 class="en">Apply for a Gram Panchayat Service</h2>
+    <h2 class="hi" style="display:none;">सेवा के लिए आवेदन करें</h2>
+
+    <form id="complaintForm">
+      <label class="en">Category</label>
+      <label class="hi" style="display:none;">श्रेणी</label>
+      <select id="category">
+        <option value="Water">Water / पानी</option>
+        <option value="Road">Road / सड़क</option>
+        <option value="Electricity">Electricity / बिजली</option>
+        <option value="Sanitation">Sanitation / सफाई</option>
+        <option value="Other">Other / अन्य</option>
+      </select>
+
+      <label class="en">Description</label>
+      <label class="hi" style="display:none;">विवरण</label>
+      <textarea id="description" rows="4" cols="40" required></textarea>
+
+      <label class="en">Upload Image (optional)</label>
+      <label class="hi" style="display:none;">छवि अपलोड करें (वैकल्पिक)</label>
+      <input type="file" id="imageFile" accept="image/*" />
+
+      <button type="submit" class="animated-btn">Submit Complaint / शिकायत दर्ज करें</button>
+    </form>
+
+    <p id="statusMsg" style="margin-top: 10px;"></p>
+
+    <hr style="margin: 40px 0;" />
+
+    <!-- Complaint Status Section -->
+    <h2 class="en" id="complaintListTitle">My Application Status</h2>
+    <h2 class="hi" id="complaintListTitleHi" style="display:none;">मेरी आवेदन स्थिति</h2>
+
+    <div id="complaintList">
+      <p class="en">Loading your submitted complaints...</p>
+      <p class="hi" style="display:none;">आपकी शिकायतें लोड हो रही हैं...</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Digital E-Gram Panchayat
+  </footer>
+
+  <script>
+    // Smooth scroll to complaint list if accessed via anchor
+    window.addEventListener("DOMContentLoaded", () => {
+      if (window.location.hash === "#complaintList") {
+        document.getElementById("complaintListTitle")?.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  </script>
+</body>
+</html>
